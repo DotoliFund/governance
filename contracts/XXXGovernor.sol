@@ -25,7 +25,7 @@ contract XXXGovernor is
     )
         Governor("XXXGovernor")
         GovernorSettings(
-          _votingDelay, /* 1 block */ // votind delay
+          _votingDelay, /* 1 block */ // voting delay
           _votingPeriod, // 45818, /* 1 week */ // voting period
           0 // proposal threshold
         )
