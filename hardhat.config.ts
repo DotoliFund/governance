@@ -5,7 +5,9 @@ import "hardhat-deploy";
 require("@nomicfoundation/hardhat-chai-matchers")
 require('dotenv').config()
 
-const INFURA_API_KEY = process.env.INFURA_API_KEY;
+const API_URL_MAINNET = process.env.API_URL_MAINNET;
+const API_URL_GOERLI = process.env.API_URL_GOERLI;
+const API_URL_POLYGON_MAINNET = process.env.API_URL_POLYGON_MAINNET;
 
 // Replace this private key with your Goerli account private key
 // To export your private key from Metamask, open Metamask and
@@ -40,11 +42,15 @@ const config: HardhatUserConfig = {
   },
   networks: {
     mainnet: {
-      url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://eth-mainnet.g.alchemy.com/v2/${API_URL_MAINNET}`,
       accounts: [TEST_PRIVATE_KEY1]
     },
     goerli: {
-      url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://eth-goerli.g.alchemy.com/v2/${API_URL_GOERLI}`,
+      accounts: [TEST_PRIVATE_KEY1, TEST_PRIVATE_KEY2, TEST_PRIVATE_KEY3]
+    },
+    polygon: {
+      url: `https://polygon-mainnet.g.alchemy.com/v2/${API_URL_POLYGON_MAINNET}`,
       accounts: [TEST_PRIVATE_KEY1, TEST_PRIVATE_KEY2, TEST_PRIVATE_KEY3]
     },
   },
