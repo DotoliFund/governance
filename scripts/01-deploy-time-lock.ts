@@ -6,7 +6,7 @@ async function main() {
   console.log("Deploying contracts with the account:", test_account_1.address);
   console.log("Account balance:", (await test_account_1.getBalance()).toString());
 
-  const MIN_DELAY = 3600 // 1 hour - after a vote passes, you have 1 hour before you can enact
+  const MIN_DELAY = 3600 // 3600 (1 hour) - after a vote passes, you have 1 hour before you can enact
   const TimeLock = await ethers.getContractFactory("TimeLock");
   const timeLock = await TimeLock.deploy(MIN_DELAY, [], []);
   await timeLock.deployed();

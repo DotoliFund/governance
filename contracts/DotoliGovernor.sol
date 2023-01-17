@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
 
-contract XXXGovernor is 
+contract DotoliGovernor is 
     Governor, 
     GovernorSettings, 
     GovernorCountingSimple, 
@@ -23,7 +23,7 @@ contract XXXGovernor is
         uint256 _votingPeriod,
         uint256 _votingDelay
     )
-        Governor("XXXGovernor")
+        Governor("DotoliGovernor")
         GovernorSettings(
           _votingDelay, /* 1 block */ // voting delay
           _votingPeriod, // 45818, /* 1 week */ // voting period
