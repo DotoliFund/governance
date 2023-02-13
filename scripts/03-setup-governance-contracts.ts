@@ -9,9 +9,9 @@ async function main() {
 
   const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000"
 
-  const TimeLockAddress = '0x4596A568AE4E6D3121527900901AD700Be7B0188';
+  const TimeLockAddress = '0xCBE1C35272735dEaF720bB6F1687651BD1bbFdF7';
   const timeLock = await ethers.getContractAt("TimeLock", TimeLockAddress)
-  const DotoliGovernorAddress = '0x12eb32076F0537bB91A23E0545e9FA19723E7FAE';
+  const DotoliGovernorAddress = '0xd5cE74e08C253Ab3A12Dd3c79f0Dcc5a1cFaFC97';
 
   // would be great to use multicall here...
   const proposerRole = await timeLock.PROPOSER_ROLE()
