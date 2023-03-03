@@ -11,6 +11,7 @@ async function main() {
   const timeLock = await TimeLock.deploy(MIN_DELAY, [], []);
   await timeLock.deployed();
   console.log("TimeLock address : ", timeLock.address);
+  console.log("Account balance:", (await test_account_1.getBalance()).toString());
 }
 
 // We recommend this pattern to be able to use async/await everywhere
