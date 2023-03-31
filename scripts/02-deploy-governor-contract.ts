@@ -12,7 +12,7 @@ async function main() {
 
   // Governor Values
   const QUORUM_PERCENTAGE = 4 // Need 4% of voters to pass
-  const VOTING_PERIOD = 45 // 45818 blocks, 1 week - how long the vote lasts. This is pretty long even for local tests
+  const VOTING_PERIOD = 45818 // 45818 blocks, 1 week - how long the vote lasts. This is pretty long even for local tests
   const VOTING_DELAY = 1 // 1 Block - How many blocks till a proposal vote becomes active
 
   const DotoliGovernor = await ethers.getContractFactory("DotoliGovernor");
