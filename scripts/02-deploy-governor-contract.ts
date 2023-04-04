@@ -3,12 +3,12 @@ import { ethers } from "hardhat"
 require('dotenv').config()
 
 async function main() {
-  const [test_account_1] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", test_account_1.address);
-  console.log("Account balance:", (await test_account_1.getBalance()).toString());
+  const [account] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", account.address);
+  console.log("Account balance:", (await account.getBalance()).toString());
 
-  const DotoliTokenAddress = '0x3CE9C63607A24785b83b3d6B3245846d402fB49b';
-  const TimeLockAddress = '0x670e49c72648E1bEB3BA45a4Ac5783fe8B402A2e';
+  const DotoliTokenAddress = '0xFd78b26D1E5fcAC01ba43479a44afB69a8073716';
+  const TimeLockAddress = '0xf1B610176319992a4F89D078A6674A076BceaBc8';
 
   // Governor Values
   const QUORUM_PERCENTAGE = 4 // Need 4% of voters to pass
@@ -24,7 +24,7 @@ async function main() {
     VOTING_DELAY);
   await governorContract.deployed();
   console.log("DotoliGovernor address : ", governorContract.address);
-  console.log("Account balance:", (await test_account_1.getBalance()).toString());
+  console.log("Account balance:", (await account.getBalance()).toString());
 }
 
 // We recommend this pattern to be able to use async/await everywhere
