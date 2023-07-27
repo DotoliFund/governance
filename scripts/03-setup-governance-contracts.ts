@@ -3,15 +3,15 @@ import { ethers } from "hardhat";
 require('dotenv').config()
 
 async function main() {
-  const [test_account_1] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", test_account_1.address);
-  console.log("Account balance:", (await test_account_1.getBalance()).toString());
+  const [account] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", account.address);
+  console.log("Account balance:", (await account.getBalance()).toString());
 
   const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000"
 
-  const TimeLockAddress = '0x670e49c72648E1bEB3BA45a4Ac5783fe8B402A2e';
+  const TimeLockAddress = '0xf1B610176319992a4F89D078A6674A076BceaBc8';
   const timeLock = await ethers.getContractAt("TimeLock", TimeLockAddress)
-  const DotoliGovernorAddress = '0x4aA9f137520D74dF77427aF4DC5C59298A241b68';
+  const DotoliGovernorAddress = '0xae248D0dCC7503126744b510D9B6703F1CaC8870';
 
   // would be great to use multicall here...
   const proposerRole = await timeLock.PROPOSER_ROLE()
@@ -22,10 +22,10 @@ async function main() {
   await proposerTx.wait(1)
   const executorTx = await timeLock.grantRole(executorRole, ADDRESS_ZERO)
   await executorTx.wait(1)
-  const revokeTx = await timeLock.revokeRole(adminRole, test_account_1.address)
+  const revokeTx = await timeLock.revokeRole(adminRole, account.address)
   await revokeTx.wait(1)
   // Now, anything the timelock wants to do has to go through the governance process
-  console.log("Account balance:", (await test_account_1.getBalance()).toString());
+  console.log("Account balance:", (await account.getBalance()).toString());
 };
 
 // We recommend this pattern to be able to use async/await everywhere

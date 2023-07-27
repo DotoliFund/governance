@@ -9,6 +9,8 @@ const API_URL_MAINNET = process.env.API_URL_MAINNET;
 const API_URL_GOERLI = process.env.API_URL_GOERLI;
 const API_URL_POLYGON_MAINNET = process.env.API_URL_POLYGON_MAINNET;
 
+const YOUR_ETHERSCAN_API_KEY = process.env.YOUR_ETHERSCAN_API_KEY;
+
 const DEPLOY_PRIVATE_KEY = process.env.DEPLOY_PRIVATE_KEY;
 if (typeof DEPLOY_PRIVATE_KEY === 'undefined') {
   throw new Error(`DEPLOY_PRIVATE_KEY must be a defined environment variable`);
@@ -58,6 +60,11 @@ const config: HardhatUserConfig = {
       url: `https://polygon-mainnet.g.alchemy.com/v2/${API_URL_POLYGON_MAINNET}`,
       accounts: [TEST_PRIVATE_KEY1, TEST_PRIVATE_KEY2, TEST_PRIVATE_KEY3]
     },
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: YOUR_ETHERSCAN_API_KEY
   },
   namedAccounts: {
     test_account_1: {
